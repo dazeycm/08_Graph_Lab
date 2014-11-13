@@ -7,6 +7,68 @@
 * using vector for both the main array and for the actual adjacency "lists"
 */
 
+/*
+	Graph Traversals
+	================
+	Goal: Visit each node exactly once, and "do something"
+	n = number of nodes
+	m = number of edges
+
+	O(n + m) when doing adjacency list
+	
+	DFS - Depth First Search
+		-> input: statring node #
+		-> we will have two data structures to help
+			-> open list:	list of vertices we know about, but haven't visited
+			-> closed list:	list of vertices already visited
+		
+		1. put start node in open list, which is ***stack***
+		2. while open list no empty
+			3. take item from open list, call it u
+			4. visit it (do something)
+			5. get neighborlist of u 
+			6. for all nodes in that neighbor list
+				7. add to open list, unless it is already there, or already in closed list
+		-> keep going as long as you can, when you get stuck go back and go down another path
+		-> spanning tree: connects all nodes of the graph together
+
+
+	BFS - Breadth First Search
+		-> input: statring node #
+		-> we will have two data structures to help
+			-> open list:	list of vertices we know about, but haven't visited
+			-> closed list:	list of vertices already visited
+
+		1. put start node in open list, which is ***queue***
+		2. while open list no empty
+			3. take item from open list, call it u
+			4. visit it (do something)
+			5. get neighborlist of u 
+			6. for all nodes in that neighbor list
+				7. add to open list, unless it is already there, or already in closed list
+		-> keep going as long as you can, when you get stuck go back and go down another path
+		-> spanning tree: connects all nodes of the graph together
+
+
+	Djikstra - Djikstra's Algorithm
+		-> input: statring node #
+		-> we will have two data structures to help
+			-> open list:	list of vertices we know about, but haven't visited
+			-> closed list:	list of vertices already visited
+	{ this stuff below isn't too accurate
+		1. put start node in open list, which is ***priority queue***
+		2. while open list no empty
+			3. take item from open list, call it u
+			4. visit it (do something)
+			5. get neighborlist of u             
+			6. for all nodes in that neighbor list
+				7. add to open list, unless it is already there, or already in closed list
+		-> keep going as long as you can, when you get stuck go back and go down another path
+		-> spanning tree: connects all nodes of the graph together
+	} 
+*/
+
+
 #include <vector>
 
 //The edge class has only a cost and a destination.
@@ -48,3 +110,4 @@ public:
 private:
 	std::vector<Node> adjList;	
 };
+
