@@ -28,6 +28,7 @@ public:
 // for keeping a list of the edges adjacent to itself.
 class Graph{
 public:
+
 	//You will need to resize the adjList before you can use it
 	Graph(unsigned int numVertices);
 
