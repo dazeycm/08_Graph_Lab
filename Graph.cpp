@@ -15,7 +15,7 @@ Graph::Graph(unsigned int numNodes){
 int Graph::getCost(int node1, int node2){
 	Node node = adjList.at(node1);
 	Edge edge = node.edgeList[node2];
-	if (edge.dest = -1)							//this reminds me hashtables
+	if (edge.dest == -1)							//this reminds me hashtables
 		return -1;
 	return edge.cost;
 	
