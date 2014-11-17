@@ -15,7 +15,7 @@ Graph::Graph(unsigned int numNodes){
 int Graph::getCost(int node1, int node2){
 	Node node = adjList.at(node1);
 	Edge edge = node.edgeList[node2];
-	if (edge.dest = -1)							//oddly, this reminds me hashtables
+	if (edge.dest = -1)							//this reminds me hashtables
 		return -1;
 	return edge.cost;
 	
@@ -26,9 +26,11 @@ int Graph::getCost(int node1, int node2){
 void Graph::addEdge(int node1, int node2, double cost){
 	Node* addTo = &adjList[node1];				//pointer to node containing edgelist we want
 	addTo->edgeList[node2].cost = cost;			//since the index of the edgelist is the destination, I don't think we need to update the destination?
-	
+	addTo->edgeList[node2].dest = node2;
+
 	addTo = &adjList[node2];
 	addTo->edgeList[node1].cost = cost;
+	addTo->edgeList[node1].dest = node1;
 
 }
 
