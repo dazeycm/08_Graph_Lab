@@ -5,6 +5,8 @@
 */
 #include "Graph.h"
 
+//I used http://www.cplusplus.com/reference/vector/vector/ to reference the vector class and 
+
 Graph::Graph(unsigned int numNodes){
 	adjList.resize(numNodes);
 	for (int i = 0; i < numNodes; i++)	{
@@ -19,13 +21,16 @@ int Graph::getCost(int node1, int node2){
 		}
 	}
 	return -1;
-
 }
 
 //Add an edge from node1 to node2, and from node2 to node1, with
 // the given cost. If the cost is < 0, throw a string exception.
 void Graph::addEdge(int node1, int node2, double cost){
-	
+	if (cost < 0) throw std::string("Cost cannot be less than 0");
+
+	Edge* newEdge = new Edge(cost, node1);
+	adjList[node2].edgeList.push_back(newEdge);
+		
 }
 
 //Remove the edge from node1 to node2, and also from node2 to node1.
