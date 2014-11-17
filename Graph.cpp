@@ -26,11 +26,11 @@ int Graph::getCost(int node1, int node2){
 //Add an edge from node1 to node2, and from node2 to node1, with
 // the given cost. If the cost is < 0, throw a string exception.
 void Graph::addEdge(int node1, int node2, double cost){
-	if (cost < 0) throw std::string("Cost cannot be less than 0");
+	if (cost < 0) 
+		throw std::string("Cost cannot be less than 0");
 
-	Edge* newEdge = new Edge(cost, node1);
-	adjList[node2].edgeList.push_back(newEdge);
-		
+	adjList[node2].edgeList.push_back(Edge(cost, node1));
+	adjList[node1].edgeList.push_back(Edge(cost, node2));
 }
 
 //Remove the edge from node1 to node2, and also from node2 to node1.
