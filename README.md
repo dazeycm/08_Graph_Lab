@@ -37,4 +37,4 @@ Should have just screen capped it.
 
 #### 4. What is one question that confused you about this exercise, or one piece of advice you would share with students next semester?
 
-Well, I'm a little confused overall. I originally implented this lab with the push_back method, and that worked fine, but then we had to loop through the edgelist to find nodes and when you have to do this multiple time, it's expensive. So I changed my methods to use pointers, and treated the index of the edgeList as the destination. This has the consequence of making my adjacency list act more like an adjacency matrix. I'm no longer putting the new edges at the end of the edge list, but instead putting them in the index that corresponds to the destination. This has to be wrong, right?
+I would make sure that you're actually implementing an adjacency matrix, because it's easy to assume that the index represents a connection, when really it's the value in the array. 
