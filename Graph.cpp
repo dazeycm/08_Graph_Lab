@@ -88,7 +88,7 @@ DFS - Depth First Search
 	->spanning tree : connects all nodes of the graph together
 */
 void Graph::DFS(int node)	{
-	if (node < 0 || getCost(node) == -1)
+	if (node < 0)
 		throw std::string("Node is not in the graph");
 
 	std::stack<int> open;
@@ -100,9 +100,9 @@ void Graph::DFS(int node)	{
 
 
 	while (!open.empty())	{
-		int currentNode = open.top;
+		int currentNode = open.top();
 		std::cout << "Visited: " << currentNode << std::endl;
-		open.pop;
+		open.pop();
 		closed[currentNode] = 1; //mark closed
 
 		for (int i = 0; i < adjList[currentNode].edgeList.size(); i++)	{
