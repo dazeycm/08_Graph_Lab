@@ -3,7 +3,9 @@
 * Date     : 2009-11-06
 * Sources  : All code is original
 */
+#include <iostream>
 #include "Graph.h"
+#include <stack>
 
 Graph::Graph(unsigned int numNodes){
 	adjList.resize(numNodes);
@@ -68,11 +70,45 @@ void Graph::removeEdge(int node1, int node2){
 		}
 	}
 }
+/*
+DFS - Depth First Search
+	->input: statring node #
+	->we will have two data structures to help
+		->open list : list of vertices we know about, but haven't visited
+		->closed list : list of vertices already visited
 
+	1. put start node in open list, which is ***stack***
+	2. while open list no empty
+		3. take item from open list, call it u
+		4. visit it(do something)
+		5. get neighborlist of u
+		6. for all nodes in that neighbor list
+			7. add to open list, unless it is already there, or already in closed list
+	->keep going as long as you can, when you get stuck go back and go down another path
+	->spanning tree : connects all nodes of the graph together
+*/
 void Graph::DFS(int node)	{
-	bool* visited = new bool[numNodes];
-}
+	if (node < 0 || getCost(node) == -1)
+		throw std::string("Node is not in the graph");
 
-void Graph::DFSHelp(int node, bool visited[])	{
+	std::stack<int> open;
+	std::vector<int> closed;
+	closed.resize(numNodes);
 
+	open.push(node);
+	closed[node] = 0; //not closed
+
+
+	while (!open.empty())	{
+		int currentNode = open.top;
+		std::cout << "Visited: " << currentNode << std::endl;
+		open.pop;
+		closed[currentNode] = 1; //mark closed
+
+		for (int i = 0; i < adjList[currentNode].edgeList.size(); i++)	{
+			if (closed[adjList[currentNode].edgeList[i].dest] == 0)	{
+				open.push(adjList[currentNode].edgeList[i].dest);
+			}
+		}
+	}
 }

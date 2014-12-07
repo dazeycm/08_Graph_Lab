@@ -28,7 +28,19 @@ void testGraph(){
 
 }
 
+void testDFS()	{
+	Graph g(10);
+	g.addEdge(1, 2, 0);
+	g.addEdge(3, 2, 0);
+	g.addEdge(2, 4, 0);
+	g.addEdge(5, 6, 0);
+	g.addEdge(7, 6, 0);
+	g.addEdge(4, 6, 0);
+	g.DFS(4);
+}
+
 int main(){
 	testGraph();
+	testDFS();
 	return 0;
 }
