@@ -110,6 +110,9 @@ public:
 	//DFS
 	void DFS(int node);
 
+	//BFS
+	void Graph::BFS(int node);
+
 private:
 	int numNodes;
 	std::vector<Node> adjList;	

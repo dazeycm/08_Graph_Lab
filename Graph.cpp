@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Graph.h"
 #include <stack>
+#include <queue>
 
 Graph::Graph(unsigned int numNodes){
 	adjList.resize(numNodes);
@@ -101,6 +102,32 @@ void Graph::DFS(int node)	{
 
 	while (!open.empty())	{
 		int currentNode = open.top();
+		std::cout << "Visited: " << currentNode << std::endl;
+		open.pop();
+		closed[currentNode] = 1; //mark closed
+
+		for (int i = 0; i < adjList[currentNode].edgeList.size(); i++)	{
+			if (closed[adjList[currentNode].edgeList[i].dest] == 0)	{
+				open.push(adjList[currentNode].edgeList[i].dest);
+			}
+		}
+	}
+}
+
+void Graph::BFS(int node)	{
+	if (node < 0)
+		throw std::string("Node is not in the graph");
+
+	std::queue<int> open;
+	std::vector<int> closed;
+	closed.resize(numNodes);
+
+	open.push(node);
+	closed[node] = 0; //not closed
+
+
+	while (!open.empty())	{
+		int currentNode = open.front();
 		std::cout << "Visited: " << currentNode << std::endl;
 		open.pop();
 		closed[currentNode] = 1; //mark closed

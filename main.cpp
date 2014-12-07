@@ -37,6 +37,8 @@ void testDFS()	{
 	g.addEdge(7, 6, 0);
 	g.addEdge(4, 6, 0);
 	g.DFS(4);
+	std::cout << "Finished DFS" << std::endl;
+	g.BFS(4);
 }
 
 int main(){
