@@ -30,6 +30,5 @@ void testGraph(){
 
 int main(){
 	testGraph();
-
 	return 0;
 }
