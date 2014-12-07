@@ -7,6 +7,7 @@
 
 Graph::Graph(unsigned int numNodes){
 	adjList.resize(numNodes);
+	this->numNodes = numNodes;
 }
 
 int Graph::getCost(int node1, int node2){
@@ -66,4 +67,12 @@ void Graph::removeEdge(int node1, int node2){
 
 		}
 	}
+}
+
+void Graph::DFS(int node)	{
+	bool* visited = new bool[numNodes];
+}
+
+void Graph::DFSHelp(int node, bool visited[])	{
+
 }

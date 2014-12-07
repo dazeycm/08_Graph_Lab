@@ -107,7 +107,14 @@ public:
 	// If there are no such edges, then don't do anything.
 	void removeEdge(int node1, int node2);
 
+	//DFS using recursion
+	void DFS(int node);
+
+	//Helper method for DFS
+	void Graph::DFSHelp(int node, bool visited[]);
+
 private:
+	virtual int numNodes;
 	std::vector<Node> adjList;	
 };
 
